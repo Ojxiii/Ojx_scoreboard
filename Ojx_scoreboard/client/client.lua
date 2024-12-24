@@ -40,32 +40,39 @@ RegisterNetEvent('Ojx_scoreboard:client:busy', function(activity, busy)
     Config.crime[activity].busy = busy
 end)
 
-
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        if IsControlJustReleased(0, 246) then
-            if not BoardOpen then
-                local players, cops, playerList = lib.callback.await('Ojx_scoreboard:server:GetData')
-                if players then
-                    SetNuiFocus(true, true)
-                    SendNUIMessage({
-                        action = 'open',
-                        players = players,
-                        maxPlayers = Config.MaxPlayers,
-                        requiredCops = Config.crime,
-                        currentCops = cops
-                    })
-                    BoardOpen = true
-                end
-            else
-                SetNuiFocus(false, false)
-                SendNUIMessage({ action = 'close' })
-                BoardOpen = false
-            end
-        end
+local keybind = lib.addKeybind({
+    name = 'scoreboard_toggle',
+    description = 'Toggle scoreboard',
+    defaultKey = 'Y', 
+    onPressed = function(self)
+        print('ox binds worked')
+        openScoreboard()
+    end,
+    onReleased = function(self)
     end
-end)
+})
+
+function openScoreboard()
+    print('scoreboard function worked')
+    if not BoardOpen then
+        local players, cops, playerList = lib.callback.await('Ojx_scoreboard:server:GetData')
+        if players then
+            SetNuiFocus(true, true)
+            SendNUIMessage({
+                action = 'open',
+                players = players,
+                maxPlayers = Config.MaxPlayers,
+                requiredCops = Config.crime,
+                currentCops = cops
+            })
+            BoardOpen = true
+        end
+    else
+        SetNuiFocus(false, false)
+        SendNUIMessage({ action = 'close' })
+        BoardOpen = false
+    end
+end
 
 RegisterNUICallback('exit', function(_, cb)
     SetNuiFocus(false, false)
