@@ -1,5 +1,6 @@
 # Ojx_scoreboard
 A scoreboard system designed to support the most popular frameworks, including (QBox, ESX, and QBCore). Based off the qb-scoreboard, the codebase has been extensively rewritten, and the entire user ui has been revamped to an inspired ui :D 
+- my discord server [Join ERR! now ]([https://discord.gg/yGUU59WjuM]) :heartbeat:
 
 # Dependencies
 
