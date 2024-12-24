@@ -3,6 +3,10 @@ A scoreboard system designed to support the most popular frameworks, including (
 - Join my discord server pls 🥺
 - [Join ERR! now ](https://discord.gg/yGUU59WjuM) 💓
 
+
+# How to use 
+- just press Y or change the keybind to what you like :D
+
 # Dependencies
 
 - [ox_lib](https://github.com/overextended/ox_lib)
