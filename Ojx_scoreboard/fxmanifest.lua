@@ -11,7 +11,7 @@ shared_script {
 }
 
 client_script {
-    '@qbx_core/modules/playerdata.lua',
+    '@qbx_core/modules/playerdata.lua',  --disable this if your not using qbox
     'client/*.lua'
 }
 server_script 'server/*.lua'
