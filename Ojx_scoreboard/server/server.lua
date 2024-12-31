@@ -4,7 +4,7 @@ local Frameworktype = Config.Framework:lower()
 if Frameworktype == 'qbcore' and GetResourceState('qb-core') == 'started' then
     Framework = exports['qb-core']:GetCoreObject()
 elseif Frameworktype == 'esx' and GetResourceState('es_extended') == 'started' then
-    TriggerEvent('esx:getSharedObject', function(obj) Framework = obj end)
+    Framework = exports["es_extended"]:getSharedObject()
 elseif Frameworktype == 'qbox' and GetResourceState('qbx_core') == 'started' then
     print('qbox:D')
 else
